@@ -25,7 +25,6 @@ def login_exibir():
 
     entry_password_login = ctk.CTkEntry(div_login, placeholder_text="Password", show="*", width=300, height=45, corner_radius=15, font=fonte_login)
     entry_password_login.pack(pady=(0, 10))
-
     botao_login = ctk.CTkButton(div_login, width=300, height=40, text="Entrar", fg_color=settings.COLOR_PRIMARY, corner_radius=15, font=fonte_login, )
     botao_login.pack(pady=(5, 15))
 
