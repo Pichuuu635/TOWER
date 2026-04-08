@@ -1,15 +1,16 @@
 import customtkinter as ctk
 import settings
 import janela_ctk
+from janela_ctk import janela_init
 
 
 def dashboard_init():
-    dashboard_janela = ctk.CTk()
-    dashboard_janela.after(0, lambda: janela_ctk.janela.state('zoomed'))
-    dashboard_janela.geometry(settings.GEOMETRY)
+    
+    frame_dashboard = ctk.CTkFrame(janela_ctk.janela, fg_color="#36ff14", width=settings.WIDTH, height=settings.HEIGHT)
+    frame_dashboard.pack()
     
     
     
     
     
-    dashboard_janela.mainloop()
+    janela_init()

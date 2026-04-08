@@ -7,7 +7,7 @@ from janela_ctk import janela_init
 
 def login_exibir():
 
-    
+    global frame_login
     
     frame_login = ctk.CTkFrame(janela_ctk.janela, width=settings.WIDTH, height=settings.HEIGHT, fg_color=settings.COLOR_BACKGROUND)
     frame_login.pack()
