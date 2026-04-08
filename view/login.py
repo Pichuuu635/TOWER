@@ -7,7 +7,7 @@ from janela_ctk import janela_init
 
 def login_exibir():
 
-    janela_init
+    
     
     frame_login = ctk.CTkFrame(janela_ctk.janela, width=settings.WIDTH, height=settings.HEIGHT, fg_color=settings.COLOR_BACKGROUND)
     frame_login.pack()
@@ -26,7 +26,7 @@ def login_exibir():
     botao_login.pack(pady=(5, 15))
 
 
-
+    janela_init()
     #janela_ctk.janela.mainloop()
 
 login_exibir()
