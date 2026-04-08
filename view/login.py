@@ -1,20 +1,18 @@
 import customtkinter as ctk
 import settings
 from controller import login_controller
-
-
+import janela_ctk
+from janela_ctk import janela_init
 
 
 def login_exibir():
 
-    login_janela = ctk.CTk()
-    login_janela.after(0, lambda: login_janela.state('zoomed'))
-    login_janela.geometry(settings.GEOMETRY)
-
-    frame_login = ctk.CTkFrame(login_janela, width=settings.WIDTH, height=settings.HEIGHT, fg_color=settings.COLOR_BACKGROUND)
+    janela_init
+    
+    frame_login = ctk.CTkFrame(janela_ctk.janela, width=settings.WIDTH, height=settings.HEIGHT, fg_color=settings.COLOR_BACKGROUND)
     frame_login.pack()
 
-    div_login = ctk.CTkFrame(login_janela, width=350, height=150, corner_radius=25, fg_color=settings.COLOR_CARD, bg_color=settings.COLOR_BACKGROUND)
+    div_login = ctk.CTkFrame(frame_login, width=350, height=150, corner_radius=25, fg_color=settings.COLOR_CARD, bg_color=settings.COLOR_BACKGROUND)
     div_login.place(relx=0.5, rely=0.5, anchor="center")
 
     fonte_login = ctk.CTkFont(family="Segoe UI", size=18, weight="bold")
@@ -29,7 +27,6 @@ def login_exibir():
 
 
 
-
-    login_janela.mainloop()
+    #janela_ctk.janela.mainloop()
 
 login_exibir()
