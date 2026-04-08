@@ -1,13 +1,15 @@
 import customtkinter as ctk
-import settings
-from controller import login_controller
+from view import settings
 import janela_ctk
 from janela_ctk import janela_init
 
 
+    
 def login_exibir():
 
     global frame_login
+    global entry_password_login
+    global entry_login
     
     frame_login = ctk.CTkFrame(janela_ctk.janela, width=settings.WIDTH, height=settings.HEIGHT, fg_color=settings.COLOR_BACKGROUND)
     frame_login.pack()
@@ -22,11 +24,17 @@ def login_exibir():
 
     entry_password_login = ctk.CTkEntry(div_login, placeholder_text="Password", show="*", width=300, height=45, corner_radius=15, font=fonte_login)
     entry_password_login.pack(pady=(0, 10))
-    botao_login = ctk.CTkButton(div_login, width=300, height=40, text="Entrar", fg_color=settings.COLOR_PRIMARY, corner_radius=15, font=fonte_login, command=lambda:login_controller.verificar(entry_login.get(), entry_password_login.get()))
+    botao_login = ctk.CTkButton(div_login, width=300, height=40, text="Entrar", fg_color=settings.COLOR_PRIMARY, corner_radius=15, font=fonte_login, command=clique)
     botao_login.pack(pady=(5, 15))
 
-
+    
+        
     janela_init()
     #janela_ctk.janela.mainloop()
+    
+def clique():
+        from controller import login_controller
+        login_controller.verificar(entry_login.get(), entry_password_login.get(), frame_login)    
 
+    
 login_exibir()

@@ -1,4 +1,4 @@
-from view import login
+from view.login import login_exibir
 
 if __name__ == "__main__":
-    login.login_exibir()
+    login_exibir()
