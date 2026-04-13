@@ -1,8 +1,11 @@
 import customtkinter as ctk
+import json
+import os
 from view.registro import registro_init
 from view import registro
 
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CAMINHO_JSON = os.path.join(BASE_DIR, "..", "data", "usuarios.json")
 def registrar(frame_destruir):
     frame_destruir.destroy()
     registro_init()
@@ -57,7 +60,37 @@ def verificar():
     if email_funcional == True and password_funcional == True and nome_data_funcional == True and password_data_funcional == True:
         texto_label_register = "Registro Concluido!"
         register_funcional = True
-        
+
+    if register_funcional == True:
+        registrar_usuario(nome_data, email_data, password_data)
+        print("I got here!")
+
+        print(nome_data, email_data, password_data, password_confirm_data)    
+
+def carregar_usuarios():
+    if not os.path.exists(CAMINHO_JSON):
+        return []
+    try:
+        with open(CAMINHO_JSON, "r") as arquivo:
+            return json.load(arquivo)
+    except (json.JSONDecodeError, FileNotFoundError):
+        return []
+
+def registrar_usuario(nome, email, senha):
+    usuarios = carregar_usuarios()
+    novo_usuario = {
+        "nome": nome,
+        "email": email,
+        "senha": senha
+    }
+    usuarios.append(novo_usuario)
+    salvar_usuario(usuarios)
+
+def salvar_usuario(user):
+    os.makedirs(os.path.dirname(CAMINHO_JSON), exist_ok=True)
+    with open(CAMINHO_JSON, "w") as arquivo:
+        json.dump(user, arquivo, indent=4)
+
     
     
     
@@ -66,4 +99,3 @@ def verificar():
     
     
      
-    print(nome_data, email_data, password_data, password_confirm_data)
