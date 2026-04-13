@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from view import settings
-import janela_ctk
-from janela_ctk import janela_init
+from view import janela_ctk
+from view.janela_ctk import janela_init
 
 
     
@@ -14,8 +14,14 @@ def login_exibir():
     frame_login = ctk.CTkFrame(janela_ctk.janela, width=settings.WIDTH, height=settings.HEIGHT, fg_color=settings.COLOR_BACKGROUND)
     frame_login.pack()
 
+    fonte_1 = ctk.CTkFont(family="Segoe UI", size=65, weight="bold")
+    
+    texto_login = ctk.CTkLabel(frame_login, text="T.O.W.E.R.", font=fonte_1, text_color=settings.COLOR_TEXT)
+    texto_login.place(relx=0.5, rely=0.2, anchor="center")
+     
     div_login = ctk.CTkFrame(frame_login, width=350, height=150, corner_radius=25, fg_color=settings.COLOR_CARD, bg_color=settings.COLOR_BACKGROUND)
     div_login.place(relx=0.5, rely=0.5, anchor="center")
+
 
     fonte_login = ctk.CTkFont(family="Segoe UI", size=18, weight="bold")
 
@@ -24,17 +30,24 @@ def login_exibir():
 
     entry_password_login = ctk.CTkEntry(div_login, placeholder_text="Password", show="*", width=300, height=45, corner_radius=15, font=fonte_login)
     entry_password_login.pack(pady=(0, 10))
+
     botao_login = ctk.CTkButton(div_login, width=300, height=40, text="Entrar", fg_color=settings.COLOR_PRIMARY, corner_radius=15, font=fonte_login, command=clique)
-    botao_login.pack(pady=(5, 15))
+    botao_login.pack(pady=(5, 5))
+
+    botao_registrar = ctk.CTkButton(div_login, text="Não tem conta? Registre-se", fg_color="transparent", hover_color=None, text_color="#3b8ed0", font=ctk.CTkFont(family="Segoe UI", size=13, underline=True), command=registrar, width=150)
+    botao_registrar.pack(pady=(0, 10))
 
     
         
     janela_init()
-    #janela_ctk.janela.mainloop()
     
 def clique():
-        from controller import login_controller
-        login_controller.verificar(entry_login.get(), entry_password_login.get(), frame_login)    
+    from controller import login_controller    
+    login_controller.verificar(entry_login.get(), entry_password_login.get(), frame_login)   
+
+def registrar():
+    from controller import register_controller
+    register_controller.registrar(frame_login)
 
     
 login_exibir()

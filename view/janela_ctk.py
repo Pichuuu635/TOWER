@@ -1,5 +1,5 @@
 import customtkinter as ctk
-import settings
+from view import settings
 
 
 
