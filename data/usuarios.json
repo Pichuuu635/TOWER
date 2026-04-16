@@ -2,11 +2,13 @@
     {
         "nome": "Pietro",
         "email": "pietroben@gmail.com",
-        "senha": "Mel121110"
+        "senha": "Mel121110",
+        "planta": ""
     },
     {
         "nome": "admin",
-        "email": "admin",
-        "senha": "tower123"
+        "email": "",
+        "senha": "",
+        "planta": ""
     }
 ]

@@ -81,7 +81,8 @@ def registrar_usuario(nome, email, senha):
     novo_usuario = {
         "nome": nome,
         "email": email,
-        "senha": senha
+        "senha": senha,
+        "planta": ""
     }
     usuarios.append(novo_usuario)
     salvar_usuario(usuarios)
