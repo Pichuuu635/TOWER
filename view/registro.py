@@ -23,10 +23,10 @@ def registro_init():
     fonte_1 = ctk.CTkFont(family="Segoe UI", size=60, weight="bold")
     fonte_2 = ctk.CTkFont(family="Segoe UI", size=17)
     
-    texto_login = ctk.CTkLabel(frame_registrar, text="Registrar-se", font=fonte_1, text_color=settings.COLOR_TEXT)
+    texto_login = ctk.CTkLabel(frame_registrar, text="Registrar-se", font=fonte_1, text_color=settings.COLOR_ACCENT)
     texto_login.place(relx=0.5, rely=0.2, anchor="center")
     
-    div_register = ctk.CTkFrame(frame_registrar, width=350, height=150, corner_radius=25, fg_color=settings.COLOR_CARD, bg_color=settings.COLOR_BACKGROUND)
+    div_register = ctk.CTkFrame(frame_registrar, width=350, height=150, corner_radius=25, fg_color=settings.COLOR_CARD, bg_color=settings.COLOR_BACKGROUND, border_color=settings.COLOR_BORDER, border_width=2)
     div_register.place(relx=0.5, rely=0.5, anchor="center")
 
     fonte_register = ctk.CTkFont(family="Segoe UI", size=18, weight="bold")
@@ -43,10 +43,10 @@ def registro_init():
     entry_registro_password_confirm = ctk.CTkEntry(div_register, placeholder_text="Confirmar Senha", show="*", width=300, height=45, corner_radius=15, font=fonte_register)
     entry_registro_password_confirm.pack(pady=(0, 15))
     
-    botao_registrar = ctk.CTkButton(div_register, width=300, height=40, text="Registrar-se", fg_color=settings.COLOR_PRIMARY, corner_radius=15, font=fonte_register, command=verificar_enviar)
+    botao_registrar = ctk.CTkButton(div_register, width=300, height=40, text="Registrar-se", fg_color=settings.COLOR_PRIMARY, hover_color=settings.COLOR_SECONDARY, corner_radius=15, font=fonte_register, command=verificar_enviar)
     botao_registrar.pack(pady=(5, 5))
     
-    botao_back_login = ctk.CTkButton(div_register, text="Voltar para o Login", fg_color="transparent", hover_color=None, text_color="#3b8ed0", font=ctk.CTkFont(family="Segoe UI", size=13, underline=True), command=back_to_login, width=150)
+    botao_back_login = ctk.CTkButton(div_register, text="Voltar para o Login", fg_color="transparent", hover_color=settings.COLOR_CARD_2, text_color=settings.COLOR_LINK, font=ctk.CTkFont(family="Segoe UI", size=13, underline=True), command=back_to_login, width=190)
     botao_back_login.pack(pady=(0, 10))
     
     
