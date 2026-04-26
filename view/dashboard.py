@@ -1,13 +1,18 @@
 import customtkinter as ctk
+import threading
 from view import settings
 from view import janela_ctk
 from view.janela_ctk import janela_init
 from data import tower_data
 from data import estufa_data
+from controller import data_receive
 
 
 
 def dashboard_init():
+
+    threading.Thread(target=data_receive.iniciar_servidor, daemon=True).start()
+    
 
     temp_data = f"{estufa_data.temperatura_ar}°C"
     umid_data = f"{estufa_data.umidade_ar}% (Ar)"
